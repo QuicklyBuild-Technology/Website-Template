@@ -1,0 +1,26 @@
+{
+    "name": "website-template",
+    "version": "0.0.1",
+    "description": "",
+    "homepage": "https://github.com/QuicklyBuild-Technology/Website-Template",
+    "license": "",
+    "scripts": {
+        "webpack:dev": "set NODE_ENV=development && webpack --config webpack.config.js",
+        "webpack:prod": "set NODE_ENV=production && webpack --config webpack.config.js",
+        "start": "http-server -c-1"
+    },
+    "dependencies": {
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "typescript": "^3.9.6"
+    },
+    "devDependencies": {
+        "@types/react": "^16.9.41",
+        "@types/react-dom": "^16.9.8",
+        "awesome-typescript-loader": "^5.2.1",
+        "http-server": "^0.12.3",
+        "source-map-loader": "^1.0.1",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.12"
+    }
+}
