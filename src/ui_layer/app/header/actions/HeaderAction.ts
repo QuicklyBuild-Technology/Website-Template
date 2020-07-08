@@ -1,4 +1,4 @@
-import { compiler, framework } from "../state_type/HeaderStateType"
+import { compiler, framework } from "../store_type/HeaderStoreType"
 import { SetCompiler, HEADER_SET_COMPILER, SetFramework, HEADER_SET_FRAMEWORK } from "./HeaderActionType"
 
 export let setCompiler = (compiler: compiler): SetCompiler => {

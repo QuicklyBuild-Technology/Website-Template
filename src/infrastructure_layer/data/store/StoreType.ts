@@ -1,5 +1,5 @@
-import { HeaderState } from "../../../ui_layer/app/header/state_type/HeaderStateType";
+import { HeaderStore } from "../../../ui_layer/app/header/store_type/HeaderStoreType";
 
 export interface Store{
-    header: HeaderState
+    header: HeaderStore
 }

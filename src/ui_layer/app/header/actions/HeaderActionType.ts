@@ -1,4 +1,4 @@
-import { compiler, framework } from "../state_type/HeaderStateType";
+import { compiler, framework } from "../store_type/HeaderStoreType";
 
 export const HEADER_SET_COMPILER = "HEADER_SET_COMPILER";
 export const HEADER_SET_FRAMEWORK = "HEADER_SET_FRAMEWORK";
