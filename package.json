@@ -11,10 +11,12 @@
         "start": "http-server -c-1"
     },
     "dependencies": {
+        "@types/lodash": "^4.14.157",
         "@types/react": "^16.9.41",
         "@types/react-dom": "^16.9.8",
         "@types/react-redux": "^7.1.9",
         "immutable": "^4.0.0-rc.12",
+        "lodash": "^4.17.16",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-redux": "^7.2.0",

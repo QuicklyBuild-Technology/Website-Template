@@ -6,6 +6,7 @@ import { setCompiler, setFramework } from "../actions/HeaderAction";
 import { useEffectExecOnlyOnce } from "../../../utils/CustomHookUtils";
 import { useIndexDB, isUseIndexDB } from "../../../../application_layer/logic_service/CacheApService";
 import { Map, List } from "immutable";
+import { curry, flow } from "lodash";
 
 let headerSelector = ({ header }: Store) => header;
 
@@ -19,8 +20,18 @@ export let Header = () => {
         console.log(isUseIndexDB());
     });
 
+
     useEffectExecOnlyOnce(() => {
         console.log(Map().set("list", List([1])).get("list"));
+
+        let aa = (a, b) => a + b;
+        let bb = (b) => b + 2;
+        console.log(
+            flow([
+                curry(aa)(0.1),
+                bb
+            ])(1.0)
+        );
     })
 
     return <section>
