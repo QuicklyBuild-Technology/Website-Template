@@ -10,13 +10,16 @@
         "start": "http-server -c-1"
     },
     "dependencies": {
+        "@types/react-redux": "^7.1.9",
+        "@types/react": "^16.9.41",
+        "@types/react-dom": "^16.9.8",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-redux": "^7.2.0",
+        "redux": "^4.0.5",
         "typescript": "^3.9.6"
     },
     "devDependencies": {
-        "@types/react": "^16.9.41",
-        "@types/react-dom": "^16.9.8",
         "awesome-typescript-loader": "^5.2.1",
         "http-server": "^0.12.3",
         "source-map-loader": "^1.0.1",
