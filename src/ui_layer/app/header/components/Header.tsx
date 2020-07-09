@@ -12,7 +12,7 @@ import "./header.scss";
 
 let headerSelector = ({ header }: Store) => header;
 
-export let Header = () => {
+let Header = () => {
     let dispatch = useDispatch();
     let { compiler, framework }: HeaderStore = useSelector(headerSelector);
 
@@ -28,12 +28,12 @@ export let Header = () => {
 
         let aa = (a, b) => a + b;
         let bb = (b) => b + 2;
-        console.log(
-            flow([
-                curry(aa)(0.1),
-                bb
-            ])(1.0)
-        );
+
+        let cc = flow([
+            curry(aa)(0.1),
+            bb
+        ]);
+        console.log(cc(1.0));
     })
 
     return <section>
@@ -50,3 +50,5 @@ export let Header = () => {
         }>Use Redux Framework</button>
     </section>
 }
+
+export default Header
