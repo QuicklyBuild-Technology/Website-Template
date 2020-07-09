@@ -7,6 +7,7 @@ import { useEffectExecOnlyOnce } from "../../../utils/CustomHookUtils";
 import { useIndexDB, isUseIndexDB } from "../../../../application_layer/logic_service/CacheApService";
 import { Map, List } from "immutable";
 import { curry, flow } from "lodash";
+import { just } from "most";
 import * as styles from "./header.module.scss";
 import "./header.scss";
 
@@ -15,6 +16,22 @@ let headerSelector = ({ header }: Store) => header;
 let Header = () => {
     let dispatch = useDispatch();
     let { compiler, framework }: HeaderStore = useSelector(headerSelector);
+
+
+    useEffectExecOnlyOnce(() => {
+        just(1).map(v => v + 1)
+            .subscribe({
+                "next": (v) => {
+                    console.log("most v:", v)
+                },
+                "error": (e) => {
+                    console.error(e);
+                },
+                "complete": () => {
+                    console.log("most complete!")
+                }
+            })
+    });
 
     useEffectExecOnlyOnce(() => {
         console.log(isUseIndexDB());
