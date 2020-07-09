@@ -1,4 +1,6 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProd = process.env.NODE_ENV.trim() == 'production';
 const isDevelopment = !isProd;
@@ -7,7 +9,8 @@ module.exports = {
     entry: "./src/index.tsx",
     mode: isProd ? 'production' : 'development',
     output: {
-        filename: "./bundle.js",
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'static/js/[name].[hash].js',
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -70,11 +73,12 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            // filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-            // chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-            filename: 'main.css',
-            chunkFilename: 'main.css'
-        })
+            filename: 'static/css/[name].[hash].css',
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+        }),
     ],
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
