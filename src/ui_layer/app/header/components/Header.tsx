@@ -7,6 +7,8 @@ import { useEffectExecOnlyOnce } from "../../../utils/CustomHookUtils";
 import { useIndexDB, isUseIndexDB } from "../../../../application_layer/logic_service/CacheApService";
 import { Map, List } from "immutable";
 import { curry, flow } from "lodash";
+import * as styles from "./header.module.scss";
+import "./header.scss";
 
 let headerSelector = ({ header }: Store) => header;
 
@@ -35,7 +37,7 @@ export let Header = () => {
     })
 
     return <section>
-        <h1>Hello from {compiler} and {framework}!</h1>
+        <h1 className={styles.test}>Hello from {compiler} and {framework}!</h1>
         <button onClick={
             () => {
                 dispatch(setCompiler("Reason"))

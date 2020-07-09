@@ -1,10 +1,11 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isProd = process.env.NODE_ENV.trim() == 'production';
+const isDevelopment = !isProd;
 
 module.exports = {
     entry: "./src/index.tsx",
     mode: isProd ? 'production' : 'development',
-    // mode: "production",
     output: {
         filename: "./bundle.js",
     },
@@ -13,9 +14,7 @@ module.exports = {
     devtool: "source-map",
 
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        // extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'],
         modules: ['node_modules']
     },
 
@@ -33,8 +32,50 @@ module.exports = {
                 test: /\.js$/,
                 loader: "source-map-loader"
             },
+            {
+                test: /\.module\.s(a|c)ss$/,
+                exclude: /node_modules/,
+                loader: [
+                    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            sourceMap: isDevelopment
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: isDevelopment
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                exclude: /\.module.(s(a|c)ss)$/,
+                loader: [
+                    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: isDevelopment
+                        }
+                    }
+                ]
+            }
         ]
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            // filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+            // chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+            filename: 'main.css',
+            chunkFilename: 'main.css'
+        })
+    ],
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our
