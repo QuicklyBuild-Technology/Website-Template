@@ -7,6 +7,7 @@
     "scripts": {
         "webpack:dev": "set NODE_ENV=development && webpack --config webpack.config.js",
         "webpack:prod": "set NODE_ENV=production && webpack --config webpack.config.js",
+        "webpack:watch": "set NODE_ENV=development && webpack --config webpack.config.watch.js",
         "watch": "tsc --watch",
         "start": "http-server -c-1"
     },
