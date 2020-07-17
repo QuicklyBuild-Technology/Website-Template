@@ -14,6 +14,12 @@ module.exports = {
         filename: 'static/js/[name].[hash].js',
     },
 
+
+    devServer: {
+        compress: true,
+        port: 8090
+    },
+
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
