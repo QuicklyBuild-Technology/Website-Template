@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Store } from "../../../../infrastructure_layer/data/store/StoreType";
-import { HeaderStore } from "../store_type/HeaderStoreType";
+import { store } from "../../../../infrastructure_layer/data/store/StoreType";
+import { headerStore } from "../store_type/HeaderStoreType";
 import { useSelector, useDispatch } from "react-redux";
-import { setCompiler, setFramework } from "../actions/HeaderAction";
+import { setCompiler, setFramework } from "../actions/headerAction";
 import { useEffectExecOnlyOnce } from "../../../utils/CustomHookUtils";
 import { useIndexDB, isUseIndexDB } from "../../../../application_layer/logic_service/CacheApService";
 import { Map, List } from "immutable";
@@ -11,11 +11,11 @@ import { just } from "most";
 import * as styles from "./header.module.scss";
 import "./header.scss";
 
-let headerSelector = ({ header }: Store) => header;
+let headerSelector = ({ header }: store) => header;
 
 let Header = () => {
     let dispatch = useDispatch();
-    let { compiler, framework }: HeaderStore = useSelector(headerSelector);
+    let { compiler, framework }: headerStore = useSelector(headerSelector);
 
 
     useEffectExecOnlyOnce(() => {

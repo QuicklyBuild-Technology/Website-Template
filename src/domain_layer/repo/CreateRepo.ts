@@ -1,6 +1,6 @@
-import { LogicState } from "../../infrastructure_layer/data/logic/LogicStateType";
+import { logicState } from "../../infrastructure_layer/data/logic/LogicStateType";
 
-export let create = (): LogicState => {
+export let create = (): logicState => {
     return {
         cache: {
             isUseIndexDB: false

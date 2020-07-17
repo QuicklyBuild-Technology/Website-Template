@@ -1,5 +1,5 @@
-import { CacheLogicState } from "./CacheLogicStateType";
+import { cacheLogicState } from "./CacheLogicStateType";
 
-export interface LogicState {
-    cache: CacheLogicState
+export interface logicState {
+    cache: cacheLogicState
 }

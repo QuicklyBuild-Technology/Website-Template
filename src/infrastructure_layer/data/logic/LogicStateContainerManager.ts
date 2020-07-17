@@ -1,10 +1,10 @@
 import { logicStateContainer } from "./LogicStateContainer"
-import { LogicState } from "./LogicStateType"
+import { logicState } from "./LogicStateType"
 
 export let getState = () => {
     return logicStateContainer.state
 }
 
-export let setState = (state: LogicState) => {
+export let setState = (state: logicState) => {
     logicStateContainer.state = state;
 }
